@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from  "react";
+import Counter from "./Counter"
 
-function App() {
+
+
+function App () {
+  const countRef = React.useRef();
+
+  const increment = () => countRef.current.increment();
+  const decrement = () => countRef.current.decrement();
+  const reset = () => countRef.current.reset();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    
+    <button onClick={increment} >increment from app</button>
+    <button onClick={decrement}>decrement from app</button>
+    <button onClick={reset}>reset from app</button>
+    
+    <Counter ref={countRef} />
+    </>
+  )
 }
 
+
+
 export default App;
+
+
+ 
